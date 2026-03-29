@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - CodeQuest</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0230, #07155d);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: white;
+    }
+
+    /* Welcome Text */
+    .welcome-container {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .welcome-text {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      animation: liftUp 1s ease-out forwards;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #ff7e5f;
+      animation: liftUp 1s ease-out 0.3s forwards;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    /* Signup Container */
+    .signup-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: liftUp 1s ease-out 0.6s forwards;
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    .signup-container h2 {
+      margin-bottom: 25px;
+      font-size: 28px;
+      color: #6e45e2;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      text-align: left;
+      animation: fadeIn 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .input-group:nth-child(1) { animation-delay: 0.8s; }
+    .input-group:nth-child(2) { animation-delay: 1s; }
+    .input-group:nth-child(3) { animation-delay: 1.2s; }
+    .input-group:nth-child(4) { animation-delay: 1.4s; }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      outline: none;
+      font-size: 16px;
+      background: white;
+      transition: all 0.3s;
+      box-sizing: border-box;
+    }
+
+    .input-group input:focus {
+      border-color: #6e45e2;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(110, 69, 226, 0.2);
+    }
+
+    .input-group input::placeholder {
+      color: #888;
+    }
+
+    .signup-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #ff7e5f, #ff6347);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 10px;
+      animation: fadeIn 0.8s ease-out 1.6s forwards;
+      opacity: 0;
+    }
+
+    .signup-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 126, 95, 0.3);
+    }
+
+    .extra-links {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #666;
+      animation: fadeIn 0.8s ease-out 1.8s forwards;
+      opacity: 0;
+    }
+
+    .extra-links a {
+      color: #6e45e2;
+      text-decoration: none;
+      margin: 0 5px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .extra-links a:hover {
+      color: #ff7e5f;
+      text-decoration: underline;
+    }
+
+    /* Lift Up Animation */
+    @keyframes liftUp {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .welcome-text {
+        font-size: 2.2rem;
+      }
+      
+      .signup-container {
+        max-width: 90%;
+        padding: 30px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .welcome-text {
+        font-size: 1.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .signup-container h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Welcome Text -->
+  <div class="welcome-container">
+    <h1 class="welcome-text">Join Code Quest!</h1>
+    <p class="subtitle">Create your account and start coding</p>
+  </div>
+
+  <!-- Signup Form -->
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <form action="/signup" method="POST">
+      <div class="input-group">
+        <label for="username"><i class="fas fa-user"></i> Username</label>
+        <input type="text" id="username" name="username" placeholder="Choose a username" required>
+      </div>
+      <div class="input-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password"><i class="fas fa-lock"></i> Password</label>
+        <input type="password" id="password" name="password" placeholder="Create a password" required>
+      </div>
+      <div class="input-group">
+        <label for="confirm-password"><i class="fas fa-lock"></i> Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+      </div>
+      <button type="submit" class="signup-btn">Sign Up</button>
+    </form>
+    <div class="extra-links">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+</body>
+</html>
